@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vue.JS</title>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    {{ message }}
+
+    <button @click="kurang()"> - </button>
+    {{ nomor }}
+    <button @click="tambah()"> + </button>
+  </div>
+
+  <script>
+    const { createApp } = Vue;
+
+    createApp({
+      data() {
+        return {
+          message: "haloo",
+          nomor: 1
+        };
+      },
+      methods: {
+        tambah() {
+          this.nomor++
+        },
+        kurang() {
+          this.nomor--
+        }
+      }
+    }).mount("#app");
+  </script>
+</body>
+
+</html>

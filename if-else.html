@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conditional</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+
+<body>
+
+    <div id="condition">
+        <span v-if="condition">
+            {{ message }}
+        </span>
+
+        <br><br>
+
+        <span v-if="condition1">
+            {{ message1 }}
+        </span>
+        <span v-else="condition1">
+            Kondisi Salah!
+        </span>
+
+        <br><br>
+
+        <span v-if="nilai <= 100 && nilai >= 70">
+            <p>Nilai Anda A</p>
+        </span>
+        <span v-else-if="nilai <= 79 && nilai >= 30">
+            <p>Nilai Anda B</p>
+        </span>
+        <span v-else-if="nilai <= 29 && nilai >= 1">
+            <p>Nilai Anda C</p>
+        </span>
+        <span v-else>
+            <p>Error!!</p>
+        </span>
+
+        <br>
+        <button @click="toogleLampu">Tekan saklar</button>
+        <p v-show="stateLampu">Lampu Hidup</p>
+    </div>
+
+    <script>
+        const { createApp } = Vue
+
+        createApp({
+            data() {
+                return {
+                    message: 'Pesan Benar',
+                    condition: true,
+
+                    message1: 'Kondisi Benar',
+                    condition1: false,
+
+                    nilai: 70,
+
+                    stateLampu: false,
+                }
+            },
+            methods: {
+                toogleLampu() {
+                    this.stateLampu = !this.stateLampu
+                }
+            }
+        }).mount("#condition");
+    </script>
+</body>
+
+</html>
